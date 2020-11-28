@@ -23,7 +23,7 @@ options: {
 ```
 Message is displayed in a closable modal with a negative option (Defaults to "No") and a positive option (Defaults to "Yes").
 Returns a `Promise` that **rejects** with "close" when closed
-and **resolves** to the option title string when an option is chosen.
+and **resolves** to 0 when the first (red, default = "No") option is chosen and 1 for the second (green, Default = "Yes") option.
 
 ## Modelify.choose(msg, choices, options)
  - msg: string: message to display
