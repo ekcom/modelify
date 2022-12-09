@@ -1,11 +1,13 @@
 /**
- * Modelify.css 1.0.1
- * Created by Elijah Mock on 11/27/2020
+ * Modelify.css 1.1.0
+ * Created by Elijah Mock
  * https://github.com/92Eli/modelify
  */
+
 .modelify {
-    width: 50%;
-    /*height: 75%;*/
+    width: 75%;
+    max-height: 75%;
+    overflow-y: scroll;
     background-color: #008eff;
     position: fixed;
     top: 50%;
@@ -19,6 +21,9 @@
 
     z-index: 1001;
 }
+.modelify::-webkit-scrollbar {
+    display: none;
+}
 .modelify p {
     text-align: center;
     margin: 0;
@@ -26,7 +31,11 @@
 }
 .modelify p.main {
     margin-top: 5vh;
-	margin-bottom: 5vh;
+    margin-bottom: 5vh;
+}
+.modelify p.sub {
+    font-size: 0.5em;
+    margin-bottom: 5vh;
 }
 .modelify .ops-container {
     display: flex;
@@ -36,6 +45,14 @@
     flex: 1;
     font-size: 2rem;
     text-align: center;
+}
+.modelify img.option {
+    flex: 1;
+    font-size: 2rem;
+    text-align: center;
+    max-width: 70%;
+    width: 25%;
+    padding: 0em 1em .25em;
 }
 .modelify-close {
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z'/></svg>");
@@ -64,7 +81,7 @@
 }
 @keyframes modelify-fly-in {
     0% { transform: translate(-50%, -100%); }
-    100% { transform: translate(-50%, -50%); } /* Modelify ends like this */
+    100% { transform: translate(-50%, -50%); }
 }
 @keyframes modelify-fade-in {
     0% { opacity: 0; }

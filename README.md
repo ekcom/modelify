@@ -54,6 +54,10 @@ Optimized for mobile
 - Uses promise API
 - Choice buttons use flexbox
 
+### Easy
+
+No more `alert()`ing to users!
+
 ## Full Documentation
 
 See [docs/documentation.md](https://github.com/92Eli/modelify/blob/master/docs/documentation.md)

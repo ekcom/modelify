@@ -10,20 +10,28 @@
 		body {
 			font-family: "Arial", sans-serif;
 		}
+		pre {
+			background-color: #ddd;
+		}
 	</style>
 </head>
 <body>
-	<h1>Look at my awesome page!</h1>
+	<h1>Modelify Demo</h1>
 	<button id="my-modal-btn">Show me another modal!</button>
+	<p>You responded with:</p>
+	<pre id="choice-selections"></pre>
     <script src="src/modelify/modelify.min.js"></script>
     <script>
-		// The script is loaded, Modelify is ready to use!
-		Modelify.info("A message for you <3");
-		Modelify.prompt("Am I correct?").then(res => {
-			console.log("RESOLVED", res);
-		}, rej => {
-			console.log("REJECTED!", rej);
-		});
+		const logResponse = (function (prompt, response) {
+			const opEl = document.getElementById("choice-selections");
+			return function (prompt, response) {
+				opEl.textContent += `${prompt}: ${response}\n`;
+			};
+		})();
+
+		Modelify.info("And, of course, info boxes.");
+
+		Modelify.infoWithTitle("With subheadings", "Titles");
 
 		Modelify.choose("Custom colors!", [1, 2, 3], {
 			smoothClose: true,
@@ -31,18 +39,19 @@
 			choiceColors: ["blue", "orange", "purple"],
 			closable: false
 		})
-			.then(r => console.log(`You said ${r}`))
-			.catch(e => {
-			if (e == "closed") {
-				console.log("Oh no! Modal was closed!");
-			} else {
-				throw e;
-			}
+			.then(r => logResponse("Custom colors!", r))
+			.catch(e => logResponse("Custom colors!", e)); // this has closable: false so won't run
+
+		Modelify.prompt("Basic prompts:").then(res => {
+			logResponse("Basic prompts", res);
+		}, rej => {
+			logResponse("Basic prompts", `{${rej}}`);
 		});
 		
-		document.getElementById("my-modal-btn").addEventListener("click", () => {
-			Modelify.info("Here you go!");
-		});
+		document.getElementById("my-modal-btn")
+			.addEventListener("click", () => {
+				Modelify.info("Here you go!");
+			});
 	</script>
 </body>
 </html>
