@@ -2,7 +2,7 @@
 
 *Small, clean, modern*
 
-<img src="http://vanilla-js.com/assets/button.png" alt="Made with Vanilla.js" />
+<img src="http://vanilla-js.com/assets/button.png" alt="Made with Vanilla.js" href="#" />
 
 Modelify is a tool that makes **easy, user-friendly modals** using vanilla JavaScript.
 
