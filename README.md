@@ -6,7 +6,7 @@
 
 Modelify is a tool that makes **easy, user-friendly modals** using vanilla JavaScript.
 
-> [View a live demo](https://92eli.github.io/modelify/demo.html)
+> [View a live demo](https://ekcom.github.io/old/modelify/demo)
 
 ## Usage
 
